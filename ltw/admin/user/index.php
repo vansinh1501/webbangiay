@@ -52,4 +52,20 @@ $data = executeResult($sql);
 </div>
 
 <!-- Cho phép xóa người dùng -->
+<script type="text/javascript">
+    function deleteUser(id) {
+        option = confirm('Bạn có chắc chắn muốn xóa tài khoản này không?');
+        if(!option) return;
+        $.post('form_api.php', {
+            'id': id,
+            'action': 'delete'
+        }, function(data) {
+            location.reload()
+        })
+    }
+</script>
+
+<?php
+require_once('../layouts/footer.php');
+?>
 
