@@ -16,7 +16,19 @@ $news = executeResult($sql);
         </div>
         <div class="wrap-news">
             <div class="grid-news">
-                
+			 <?php
+                foreach($news as $item) {
+                    echo '
+                    <div class="grid-rows-news">
+                    <div class="img-news"><a href=""><img src='.$item['thumbnail'].'></a></div>
+                    <div class="font-news">
+                    <h3><a href="">'.$item['title'].'</a></h3>
+                    <span class="description-font">'.$item['description'].'</span>
+                    </div>
+                    </div>
+                    ';
+                }
+                ?>
                 </div>
             </div>
         </div>
