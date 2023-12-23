@@ -15,7 +15,39 @@ require_once('authen/process_form_register.php');
                 </ul>
             </div>
         </div>
-        
+        <div class="wrap-register">
+            <form method="post" onsubmit="return validateForm();">
+            <div class="form-register">
+                <div class="grid-form-register">
+                    <div class="title-register">
+                        <h1>Đăng ký</h1> <h5 class="text-center"><?=$msg2?></h5> 
+                    </div>
+                    <div class="grid-form-detail-register">
+                            <div class="font-form-detail-register">
+                                <label for="">HỌ & TÊN: </label><br>
+                                <input class="control-register" type="text" id="usr" required="true" name="fullname" value="<?=$fullname?>">
+                            </div>
+                            <div class="font-form-detail-register">
+                                <label for="">EMAIL: </label><br>
+                                <input class="control-register" type="email" id="email" required="true" name="email" value="<?=$email?>">
+                            </div>
+                            <div class="font-form-detail-register">
+                                <label for="">MẬT KHẨU: </label><br>
+                                <input class="control-register" type="password" id="pwd" required="true" name="password" minlength="6">
+                            </div>
+                            <div class="font-form-detail-register">
+                                <label for="">NHẬP LẠI MẬT KHẨU: </label><br>
+                                <input class="control-register" type="password" id="confirm_pwd" required="true" minlength="6" name="repassword">
+                            </div>
+                    </div>
+                    <div class="register-action">
+                        <input class="button-register" type="submit" value="Đăng ký"></input>
+                        Bạn đã có tài khoản?<a href="login.php" class="font-register-action"><b>Đăng nhập</b></a>
+                    </div>
+                </div>
+            </div>
+        </form>
+        </div>
 
             <div id="backtop">
                 <i class="fa-solid fa-chevron-up"></i>
