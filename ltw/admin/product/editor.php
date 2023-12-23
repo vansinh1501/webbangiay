@@ -44,7 +44,65 @@ $categoryItems = executeResult($sql);
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <div class="row" style="margin-top: 20px;">
-   
+   <div class="col-md-12 table-responsive">
+        <h3>THÊM/SỬA SẢN PHẨM</h3>
+        <div class="panel panel-primary">
+			<div class="panel-body">
+				<form action="" method="post" enctype="multipart/form-data">
+				<div class="row">
+					<div class="col-md-9 col-12">
+					<div class="form-group">
+					  <label for="usr">Tên Sản Phẩm:</label>
+					  <input required="true" type="text" class="form-control" id="usr" name="title" value="<?=$title?>">
+					  <input type="text" name="id" value="<?=$id?>" hidden="true">
+					</div>
+					<div class="form-group">
+					  <label for="pwd">Nội dung:</label>
+					  <textarea class="form-control" name="description" id="description" cols="30" rows="5"><?=$description?></textarea>
+					</div>
+					<button class="btn btn-success">Lưu sản phẩm</button>
+					</div>
+					<div class="col-md-3 col-12"  style="border: solid gray 1px; padding-top: 10px; padding-bottom: 10px;">
+					<div class="form-group">
+					<div class="form-group">
+					  <label for="email">Thumbnail:</label>
+					  <input required="true" type="file" class="form-control" id="thumbnail" name="thumbnail" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+					  <img id="thumbnail_img" src="<?=fixUrl($thumbnail)?>" style="max-height: 160px; display: block; margin-left: auto; margin-right: auto; margin-top: 15px; margin-bottom: 15px;">
+					</div>
+					  <label for="usr">Danh Mục Sản Phẩm:</label>
+					  <select class="form-control" name="category_id" id="category_id" required="true">
+						<option value="">-- Chọn --</option>
+						<?php
+						foreach($categoryItems as $item) {
+							//Kiểm tra role đã tồn tại
+							if($item['id'] == $category_id) {
+								echo '<option selected value="'.$item['id'].'">'.$item['name'].'</option>';
+							}else {
+								echo '<option value="'.$item['id'].'">'.$item['name'].'</option>';
+							}
+						}
+						?>
+                      </select>
+					</div>
+                    <div class="form-group">
+					  <label for="price">Giá:</label>
+					  <input required="true" type="number" class="form-control" id="price" name="price" value="<?=$price?>">
+					</div>
+                    <div class="form-group">
+					  <label for="address">Giảm Giá:</label>
+					  <input required="true" type="text" class="form-control" id="discount" name="discount" value="<?=$discount?>">
+					</div>  
+					<div class="form-group">
+					  <label for="address">Tồn kho:</label>
+					  <input required="true" type="num" class="form-control" id="quantity" name="quantity" value="<?=$quantity?>">
+					</div>  
+					</div>
+				</div>
+			   </form>
+			</div>
+		</div>
+    </div>
+</div>
 </div>
 <script>
 	//Nhúng summernote
